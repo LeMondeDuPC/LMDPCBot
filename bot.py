@@ -1,7 +1,7 @@
 import discord
-from discord import Reaction, Member, Message, User, TextChannel, Client
+from discord import Reaction, Member
 from discord.ext import commands
-from discord.ext.commands import Context, has_permissions, Bot
+from discord.ext.commands import has_permissions
 
 import scrap
 
