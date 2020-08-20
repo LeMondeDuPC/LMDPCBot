@@ -40,6 +40,7 @@ async def unsubscribe(ctx):
 @client.command()
 async def update(ctx):
     new_article = await scrap.get_new_articles()
+    await client.wait_until_ready()
     if new_article == "":
         await ctx.send(":x: **Il n'y a pas de nouvel article sur le site**")
         return
