@@ -4,4 +4,7 @@
 [![Discord](https://img.shields.io/badge/Chat-Discord-blue)](https://discord.gg/e878gNR)
 
 ## Commands
-- !search [keywords] - Search for an article on the site
+- !subscribe
+- !unsubscribe
+- !update
+- ***TODO:** !search [keywords] - Search for an article on the site*
