@@ -13,6 +13,3 @@ def get_new_articles():
             return link
         else:
             return ""
-        
-        
-        
