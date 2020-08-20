@@ -1,19 +1,6 @@
-import json
+from json import dump
+from feedparser import parse
 
-from bs4 import BeautifulSoup
-import requests
-
-
-async def get_new_articles():
-    page = requests.get("https://www.lemondedupc.fr/")
-    soup = BeautifulSoup(page.content, features="lxml")
-    logs = json.load(open('logs.json'))
-
-    for article in soup.find_all("article", class_="mini-post"):
-        link = article.find("a", href=True)['href']
-        if "article" in link and link not in logs["articles"]:
-            newlogs = logs
-            newlogs["articles"].append(link)
-            json.dump(newlogs, open('logs.json', 'w'), indent=4)
-            return link
-    return ""
+def get_new_articles():
+    links = {"articles": [x["link"].split("https://www.lemondedupc.fr")[1] for x in parse("https://www.lemondedupc.fr/rss.xml").entries][:5]}
+    dump(links, open('logs.json', 'w'), indent=4)
