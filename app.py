@@ -50,4 +50,4 @@ async def update(ctx):
     pass
 
 
-client.run(open("TOKEN", "r").read())
+client.run(open("./TOKEN", "r").read())
