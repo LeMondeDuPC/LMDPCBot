@@ -39,13 +39,14 @@ async def unsubscribe(ctx):
 
 @client.command()
 async def update(ctx):
-    new_article = await scrap.get_new_articles()
+    new_article = scrap.get_new_articles()
     await client.wait_until_ready()
     if new_article == "":
         await ctx.send(":x: **Il n'y a pas de nouvel article sur le site**")
         return
     role = discord.utils.get(ctx.guild.roles, name="Abonné")
-    await client.get_channel(731620991767150603).send(f"**{role.mention} :newspaper: Nouvel article:**\nhttps://www.lemondedupc.fr" + new_article)
+    await client.get_channel(731620991767150603).send(
+        f"**{role.mention} :newspaper: Nouvel article:**\nhttps://www.lemondedupc.fr" + new_article)
     pass
 
 
